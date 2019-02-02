@@ -15,7 +15,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+    let QVC = QuizViewController()
+    let SVC = SearchViewController()
+    let CVC = CreateViewController()
+    let PVC = ProfileViewController()
+    let tab = UITabBarController()
+    let nav1 = UINavigationController.init(rootViewController: QVC)
+    let nav2 = UINavigationController.init(rootViewController: SVC)
+    let nav3 = UINavigationController.init(rootViewController: CVC)
+    let nav4 = UINavigationController.init(rootViewController: PVC)
+    nav1.tabBarItem = UITabBarItem(title: "Quiz", image: UIImage.init(named: "icons8-ask-question-filled-25"), selectedImage: UIImage.init(named: "icons8-ask-question-filled-25"))
+    nav2.tabBarItem = UITabBarItem(title: "Search", image: UIImage.init(named: "icons8-search-filled-25"), selectedImage: UIImage.init(named: "icons8-search-filled-25"))
+    nav3.tabBarItem = UITabBarItem(title: "Create", image: UIImage.init(named: "icons8-create-25"), selectedImage: UIImage.init(named: "icons8-create-25"))
+    nav4.tabBarItem = UITabBarItem(title: "Profile", image: UIImage.init(named: "profile-unfilled"), selectedImage: UIImage.init(named: "profile-unfilled"))
+    tab.viewControllers = [nav1, nav2, nav3, nav4]
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.rootViewController = tab
+    window?.makeKeyAndVisible()
+    
     return true
   }
 
