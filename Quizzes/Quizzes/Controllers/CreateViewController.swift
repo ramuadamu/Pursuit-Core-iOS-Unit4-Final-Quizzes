@@ -26,7 +26,7 @@ class CreateViewController: UIViewController {
 
         self.view = CreateView()
         
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .green
         self.view.addSubview(createView)
     }
     

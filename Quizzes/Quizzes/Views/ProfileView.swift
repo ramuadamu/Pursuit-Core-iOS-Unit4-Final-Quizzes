@@ -10,18 +10,39 @@ import UIKit
 
 class ProfileView: UIView {
 
-    public lazy var profileImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "placeholder-image"))
-        imageView.backgroundColor = .white
-        return imageView
-    }()
-    
-    public lazy var profileUserName: UIButton = {
-        let userName = UIButton()
-        userName.backgroundColor = .white
-        return userName
-    }()
-    
+    public lazy var myLabel: UILabel = {
+        let myLabel = UILabel()
+        myLabel.text = "Edit Photo"
+        myLabel.textColor = .black
+        myLabel.textAlignment = .left
+        return myLabel
+}()
+
+    public lazy var myView: UIView = {
+        let myView = UIView()
+        myView.backgroundColor = .white
+        return myView
+}()
+
+    public lazy var imageButton: UIButton = {
+        let profilePhotoButton = UIButton()
+        profilePhotoButton.setBackgroundImage(UIImage.init(named: "placeholder-image"), for: .normal)
+        profilePhotoButton.backgroundColor = .gray
+        profilePhotoButton.layer.cornerRadius = 20
+        profilePhotoButton.clipsToBounds = true
+        return profilePhotoButton
+}()
+
+    public lazy var userNameLabel: UILabel = {
+        let profileUsername = UILabel()
+        profileUsername.textColor = .black
+        profileUsername.textAlignment = .center
+        profileUsername.font = UIFont.boldSystemFont(ofSize: 20)
+        profileUsername.text = "@Ramu"
+        return profileUsername
+        
+}()
+
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -30,38 +51,39 @@ class ProfileView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
-    }
-    
+}
     private func commonInit() {
-        backgroundColor = .gray
-        setupViews()
-    }
+        setConstraints()
 }
 
-extension ProfileView {
-    private func setupViews() {
-        setupProfileImageView()
-        setupProfileUserName()
-    }
+    private func setConstraints() {
+    addSubview(myLabel)
+    addSubview(myView)
+    addSubview(imageButton)
+    addSubview(userNameLabel)
     
-    private func setupProfileImageView() {
-        addSubview(profileImageView)
-        profileImageView.translatesAutoresizingMaskIntoConstraints = false
-        profileImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        profileImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        profileImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        profileImageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.50).isActive = true
-    }
+    myLabel.translatesAutoresizingMaskIntoConstraints = false
+    myLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+    myLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+    myLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
     
-    private func setupProfileUserName() {
-        addSubview(profileUserName)
-        profileUserName.translatesAutoresizingMaskIntoConstraints = false
-        profileUserName.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: -12).isActive = true
-        // profileUserName.centerXAnchor.constraint(equalTo: centerXAnchor, constant:20).isActive = true
-        profileUserName.leadingAnchor.constraint(equalTo:centerXAnchor, constant: -11).isActive = true
-        
-        
-    }
+    myView.translatesAutoresizingMaskIntoConstraints = false
+    myView.topAnchor.constraint(equalTo: myLabel.bottomAnchor, constant: 30).isActive = true
+    myView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
+    myView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
+    myView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
+    imageButton.translatesAutoresizingMaskIntoConstraints = false
+    imageButton.centerXAnchor.constraint(equalTo: myView.centerXAnchor).isActive = true
+    imageButton.centerYAnchor.constraint(equalTo: myView.centerYAnchor).isActive = true
+    imageButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1).isActive = true
+    imageButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
+    
+    
+    userNameLabel.translatesAutoresizingMaskIntoConstraints = false
+    userNameLabel.topAnchor.constraint(equalTo: imageButton.bottomAnchor, constant: 30).isActive = true
+    userNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+    userNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+    userNameLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.03).isActive = true
+
 }
-
-
+}
