@@ -84,15 +84,20 @@
 			isa = PBXGroup;
 			children = (
 				2BD17E4E2204BF5100DE15B0 /* QuizViewController.swift */,
-				2BD17E592204DD4E00DE15B0 /* QuizCollectionViewCell.swift */,
 				2BD17E502204BF6000DE15B0 /* SearchViewController.swift */,
-				2BD17E812207E79800DE15B0 /* SearchCell.swift */,
-				2BD17E7F2207DF3E00DE15B0 /* APIClient.swift */,
 				2BD17E522204BF7600DE15B0 /* CreateViewController.swift */,
 				2BD17E542204BF8300DE15B0 /* ProfileViewController.swift */,
-				2BD17E7D22078EDE00DE15B0 /* UserDefaultKeys.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2BD17E832208593500DE15B0 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				2BD17E592204DD4E00DE15B0 /* QuizCollectionViewCell.swift */,
+				2BD17E812207E79800DE15B0 /* SearchCell.swift */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		577118B42203796A00B9DD0B = {
@@ -115,6 +120,7 @@
 		577118BF2203796A00B9DD0B /* Quizzes */ = {
 			isa = PBXGroup;
 			children = (
+				2BD17E832208593500DE15B0 /* CollectionViewCells */,
 				2BD17E562204C0F100DE15B0 /* Controllers */,
 				2BD17E4D2204BF0000DE15B0 /* Views */,
 				577118D222037A6200B9DD0B /* Network Services */,
@@ -129,6 +135,7 @@
 		577118D222037A6200B9DD0B /* Network Services */ = {
 			isa = PBXGroup;
 			children = (
+				2BD17E7F2207DF3E00DE15B0 /* APIClient.swift */,
 				577118D422037A9F00B9DD0B /* AppError.swift */,
 				577118D622037ABA00B9DD0B /* NetworkHelper.swift */,
 			);
@@ -149,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				577118D922037B5B00B9DD0B /* DataPersistenceManager.swift */,
+				2BD17E7D22078EDE00DE15B0 /* UserDefaultKeys.swift */,
 				2BD17E5B220609D400DE15B0 /* QuizzesDataManager.swift */,
 			);
 			path = "File Manager Helpers";

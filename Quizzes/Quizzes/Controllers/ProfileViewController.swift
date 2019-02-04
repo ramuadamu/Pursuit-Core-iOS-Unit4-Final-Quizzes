@@ -48,7 +48,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
 
     func setUpAlertController() {
-        let alertController = UIAlertController(title: "Enter your user name", message: "special characters are not allowed", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Enter your user name", message: "", preferredStyle: .alert)
         alertController.addTextField { (textfield) in
             textfield.font = UIFont.boldSystemFont(ofSize: 15)
             textfield.layer.cornerRadius = 9.0

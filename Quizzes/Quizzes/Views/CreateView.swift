@@ -10,18 +10,24 @@ import UIKit
 
 class CreateView: UIView {
 
-    public lazy var titleText: UITextView = {
-        let myTitleText = UITextView()
+    public lazy var titleText: UITextField = {
+        let myTitleText = UITextField()
+        myTitleText.backgroundColor = .white
+        myTitleText.placeholder = "Enter quiz"
         return myTitleText
     }()
 
-    public lazy var getTextField: UITextField = {
-        let firstQuizFact = UITextField()
+    public lazy var getTextField: UITextView = {
+        let firstQuizFact = UITextView()
+        firstQuizFact.backgroundColor = .white
+        firstQuizFact.text = "Enter first quiz fact"
         return firstQuizFact
     }()
     
-    public lazy var postTextField: UITextField = {
-        let secondQuizFact = UITextField()
+    public lazy var postTextField: UITextView = {
+        let secondQuizFact = UITextView()
+        secondQuizFact.backgroundColor = .white
+        secondQuizFact.text = "Enter second quiz fact"
         return secondQuizFact
     }()
     
@@ -35,27 +41,39 @@ class CreateView: UIView {
         commonInit()
     }
     private func commonInit() {
-        setConstraints()
+        setUptitleText()
+        setUpgetTextField()
+        setUppostTextField()
     }
     
-    func setConstraints() {
-        addSubview(titleText)
-        addSubview(getTextField)
-        addSubview(postTextField)
+    func setUptitleText() {
         
-        titleText.translatesAutoresizingMaskIntoConstraints = false
-        titleText.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        titleText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        titleText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+            addSubview(titleText)
+            titleText.translatesAutoresizingMaskIntoConstraints = false
+            titleText.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant:80).isActive = true
+            titleText.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 11).isActive = true
+            titleText.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -11).isActive = true
+            titleText.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        }
         
-        getTextField.translatesAutoresizingMaskIntoConstraints = false
-        getTextField.topAnchor.constraint(equalTo: titleText.bottomAnchor, constant: 11).isActive = true
-        getTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11).isActive = true
-        getTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11).isActive = true
-        //getTextField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -11).isActive = true
+        func setUpgetTextField() {
+            addSubview(getTextField)
+            getTextField.translatesAutoresizingMaskIntoConstraints = false
+            getTextField.topAnchor.constraint(equalTo: titleText.bottomAnchor, constant: 11).isActive = true
+            getTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 11).isActive = true
+            getTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -11).isActive = true
+            getTextField.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.30).isActive = true
+        }
+        
+        func setUppostTextField() {
+            addSubview(postTextField)
+            postTextField.translatesAutoresizingMaskIntoConstraints = false
+            postTextField.topAnchor.constraint(equalTo: getTextField.bottomAnchor, constant: 11).isActive = true
+            postTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 11).isActive = true
+            postTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -11).isActive = true
+            postTextField.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.30).isActive = true
+        }
         
         
-
         
-    }
 }
