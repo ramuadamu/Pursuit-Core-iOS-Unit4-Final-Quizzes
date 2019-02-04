@@ -9,7 +9,7 @@
 import Foundation
 
 struct QuizzesModel: Codable {
-    let id: Int
+    let id: String
     let quizTitle: String
     let facts: [String]
 }
